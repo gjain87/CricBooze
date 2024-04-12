@@ -1,0 +1,31 @@
+<div class="table-container">
+    <h1 class="text-4xl font-extrabold text-gray-800  px-2">IPL-2024 Points Table</h1>
+    <h1 class="text-gray-600 font-extrabold text-4xl">
+             
+        
+     
+  </h1>
+    <table class="table-auto w-full mt-8 shadow-md rounded-lg text-center">
+        <thead>
+          <tr class="text-xs font-semibold bg-gray-200 text-gray-700">
+           @for (heading of tableHeading; track $index) {
+            <th class="px-4 py-2">{{heading}}</th>
+           }
+          </tr>
+        </thead>
+        <tbody>
+         @for (teams of pointTable; track $index) {
+            <tr class="hover:bg-blue-100 hover:scale-105 transition-all cursor-pointer hover:font-bold" [ngClass]="{
+                'bg-green-200':$index<=4,
+                'bg-red-200':$index>4
+            }">
+                @if ($index>0) {
+                    @for (points of teams; track $index) {
+                        <td class="px-4 py-2">{{points}}</td>
+                    }
+                }
+              </tr>
+         }
+        </tbody>
+      </table>
+</div>
